@@ -23,7 +23,7 @@ const MascotaScheme = new mongoose.Schema({
     //Categoria de tipo string pero solo va a tener ciertos valores
     categoria: { type: String, enum: ['Perro', 'Gato', 'Otro'] },
     foto: String,
-    descipcion: { type: String, required: true },
+    descripcion: { type: String, required: true },
     //El anunciante va a ser de tipo id para que se fuerce que cada que se cree una mascota, se referncíe a un anunciante.
     //Es una referencia a los usuarios
     anunciante: {type: mongoose.Schema.Types.ObjectId, ref: "Usuario"},
@@ -38,7 +38,7 @@ MascotaScheme.methods.publicData = () => {
         nombre: this.nombre,
         categoria: this.categoria,
         foto: this.foto,
-        descipcion: this.descipcion,
+        descripcion: this.descripcion,
         anunciante: this.anunciante,
         ubicacion: this.ubicacion
     }
