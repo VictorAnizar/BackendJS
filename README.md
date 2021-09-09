@@ -10,4 +10,4 @@ This Backend project was made with Express, NodeJS, MongoDB and Mongoose
 This project follow a very modular structure. 
 Starting with the directories:
 
-![Image text](images_documentation\directories_structure.png)
+![Image text](images_documentation/directories_structure.png)
