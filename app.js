@@ -8,23 +8,18 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 //se parsean los bodys a json
 app.use(bodyParser.json());
-
 //Configuración de la Base de datos
 //primero decimos que usaremos mongoose
 const mongoose=require('mongoose');
 mongoose.connect("mongodb+srv://victor123:victor123@cluster0.01uzb.mongodb.net/Adoptapet?retryWrites=true&w=majority");
 //para que se generen alertas y errores de una forma verbosa
 mongoose.set("debug", true);
-
 //usamos los modelos
 require('./models/Usuario');
 require('./models/Mascota');
 require('./models/Solicitud');
-
-
 //configuracion de las rutas
 app.use('/v1', require('./routes'));
-
 //decimos cómo/dónde se va a ejecutar la app
 //definimos el puerto 
 const PORT = 4001;
