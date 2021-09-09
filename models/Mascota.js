@@ -32,16 +32,17 @@ const MascotaScheme = new mongoose.Schema({
 
 //se necesita una funcion para indicar cuáles atributos son publicos y, por lo tanto, son accesibles para todos los usuarios
 //Siempre que se defina un esquema se tiene que definir este metodo "public data"
-UsuarioScheme.methods.publicData = () => {
+MascotaScheme.methods.publicData = () => {
     return {
         id: this.id,
-        username: this.username,
         nombre: this.nombre,
-        apellido: this.apellido,
-        email: this.email,
-        tipo: this.tipo
+        categoria: this.categoria,
+        foto: this.foto,
+        descipcion: this.descipcion,
+        anunciante: this.anunciante,
+        ubicacion: this.ubicacion
     }
 }
 //Los attr anteriores son accesibles para todos. "Password" no es accesible para todo el mundo
 //cada que en JS hablemos de "Usuario", nos referimos al esquema
-mongoose.model("Usuario", UsuarioScheme);
+mongoose.model("Mascota", MascotaScheme);

@@ -3,14 +3,30 @@
  *  en un futuro aquí se utilizarán los modelos
  */
 
-// importamos el modelo de Mascotas
-const Mascota = require('../models/Mascota')
+//importamos mongoose
+const mongoose = require('mongoose');
+//importamos el modelo definido en mongoose
+const Mascota = mongoose.model("Mascota");
 
-function crearMascota(req, res) {
-  // Instanciaremos un nuevo Mascota utilizando la clase Mascota
-  var mascota = new Mascota(req.body)
-  res.status(201).send(mascota)
+//A partir de lo AuthenticatorAssertionResponse, de genera la persistencia en los datos
+
+function crearMascota(req, res, next) {
+  //El cliente nos manda esa mascota en el body
+  var mascota = new Mascota(req.body);
+  //La mascota generada a partir de la info mandada, la guarda en la BD
+  //Se debe de tratar con errores porque pueden surgir en cualquier momento
+  mascota.save()
+  //En caso de que TODO haya salido bien
+  .then( mas => {
+    //Se manda un estatus y se manda a la mascota
+    res.status(200).send(mas);
+  })
+  //En caso de algun error
+  //Dejamos que mongoose responda
+  //Se usa el parametro next para modelar el paso siguiente
+  .catch(next);
 }
+//Lo anterior genera persistencia de datos
 
 function obtenerMascotas(req, res) {
   // Simulando dos Mascotas y respondiendolos

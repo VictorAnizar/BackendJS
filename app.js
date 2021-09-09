@@ -16,6 +16,12 @@ mongoose.connect("mongodb+srv://victor123:victor123@cluster0.01uzb.mongodb.net/A
 //para que se generen alertas y errores de una forma verbosa
 mongoose.set("debug", true);
 
+//usamos los modelos
+require('./models/Usuario');
+require('./models/Mascota');
+require('./models/Solicitud');
+
+
 //configuracion de las rutas
 app.use('/v1', require('./routes'));
 
