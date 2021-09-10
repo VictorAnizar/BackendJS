@@ -24,7 +24,7 @@ As you see, we are using 3 different commands, but, the most used in this projec
 Also, we are using different dependences: `body-parser`, `express` and `mongoose`. 
 
 ## Deploying the project
-Beforte starting with the documentation of specific files, is very important how to star to run our project.
+Beforte starting with the documentation of specific files, is very important how to start our project.
 The `app.js` file contains the next sentences
 
 ![Image text](images_documentation/appjs.png)
@@ -38,11 +38,11 @@ The base of our "entities" of the API are located in the directory `models`. Thi
 
 ![Image text](images_documentation/modelsdirectory.png)
 
-If we see each file of this directory, we can see that all of them, follows a very similar arquitechture. For example, lets talk about the `Mascota.js` file:
+If we see each file of this directory follows a very similar arquitechture. For example, lets talk about the `Mascota.js` file:
 
 ![Image text](images_documentation/mascotamodel.png)
 
-In the line 2, the only thing that we are doing is requiring the dependence "mongoose", this is because we need to define a "skeleton" of the entity, we are taking as base the Schema of the MongoDB model (line 6 to 17)
+In the line 2, the only thing that we are doing is requiring the "mongoose" dependence, this is because we need to define a "skeleton" of the entity, we are taking as base the Schema of the MongoDB model (line 6 to 17)
 
 With the lines 21-31, we are allowing to the end user to enter to these attributes whenever he want. This is by the use of the `publicData` function.
 
