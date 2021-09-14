@@ -1,5 +1,4 @@
 //importamos la biblioteca de express para poder generar la API
-const { response } = require('express');
 const express = require('express');
 //esta var es la que va a abstraer el comportamiento COMPLETO de nuestra API
 const app = express();
@@ -11,7 +10,7 @@ app.use(bodyParser.json());
 //Configuración de la Base de datos
 //primero decimos que usaremos mongoose
 const mongoose=require('mongoose');
-mongoose.connect("mongodb+srv://victor123:victor123@cluster0.01uzb.mongodb.net/Adoptapet?retryWrites=true&w=majority");
+mongoose.connect();
 //para que se generen alertas y errores de una forma verbosa
 mongoose.set("debug", true);
 //usamos los modelos

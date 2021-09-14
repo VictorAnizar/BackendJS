@@ -31,12 +31,12 @@ function crearMascota(req, res, next) {
 function obtenerMascotas(req, res, next) {
   //Se tiene que definir dos comportamientos: Obtencion de todos los registros y obtencion de uno solo
   //vemos si en los parametros del usuario, hay un campo ID. En caso afirmativo, esta buscando un registro en especifico
-  if (req.params.id) {
+  if (req.params.id) { 
     //Se busca directamente la mascota
     Mascota.findById(req.params.id)
       //Si sale bien, se manda el registro
       .then(
-        mas => res.send(mas)
+        mas => {res.send(mas)}
       )
       //Si sale mal se deja que mongoose responda
       .catch(next);
@@ -46,9 +46,9 @@ function obtenerMascotas(req, res, next) {
     //Trae toda la info de la coleccion a la que se esta haciendo referencia
     Mascota.find()
       //Si sale bien, se regresan los datos
-      .then(mascs => res.send(mascs))
+      .then(mascotas => res.send(mascotas))
       //Si sale mal, mongoose responde
-      .catch(next);
+      .catch((next));
   }
 }
 
@@ -106,10 +106,22 @@ function eliminarMascota(req, res, next) {
   .catch(next);
 }
 
+
+function count(req,res,next) {
+  var categoria = req.params.cat
+  Mascota.aggregate([
+    {'$match': { 'categoria': categoria}}, 
+    {'$count': 'total'}
+  ]).then(r => {
+    res.status(200).send(r)
+  }).catch(next)
+}
+
 // exportamos las funciones definidas
 module.exports = {
   crearMascota,
   obtenerMascotas,
   modificarMascota,
-  eliminarMascota
+  eliminarMascota,
+  count
 }

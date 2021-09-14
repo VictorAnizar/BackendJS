@@ -14,9 +14,10 @@ function crearUsuario(req, res) {
 
 function obtenerUsuarios(req, res) {
   // Simulando dos usuarios y respondiendolos
-  var usuario1 = new Usuario(1, 'Juancho', 'Juan', 'Vega', 'juan@vega.com', 'abc', 'normal')
-  var usuario2 = new Usuario(2, 'Mons', 'Monserrat', 'Vega', 'mon@vega.com', 'abc', 'anunciante')
-  res.send([usuario1, usuario2])
+  // var usuario1 = new Usuario(1, 'Juancho', 'Juan', 'Vega', 'juan@vega.com', 'abc', 'normal')
+  // var usuario2 = new Usuario(2, 'Mons', 'Monserrat', 'Vega', 'mon@vega.com', 'abc', 'anunciante')
+  // res.send([usuario1, usuario2])
+  res.send("pp")
 }
 
 function modificarUsuario(req, res) {
