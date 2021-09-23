@@ -1,2 +1,2 @@
-./config/env.sh
-./node_modules
+config/env.sh
+node_modules
