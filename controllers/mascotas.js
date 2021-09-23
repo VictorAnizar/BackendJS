@@ -101,7 +101,7 @@ function modificarMascota(req, res, next) {
 
 function eliminarMascota(req, res, next) {
   //se usa una funcion definida de mongooose
-  Mascota.findOneAndDelete({i_id:req.params.id})
+  Mascota.findOneAndDelete({_id:req.params.id})
   .then(r=>res.status(200).send("Mascota eliminada"))
   .catch(next);
 }
